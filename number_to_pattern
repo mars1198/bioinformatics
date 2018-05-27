@@ -1,0 +1,31 @@
+import math
+
+def NumberToLetter(number):
+    if number == 0:
+        return 'A'
+    elif number == 1:
+        return 'C'
+    elif number == 2:
+        return 'G'
+    elif number == 3:
+        return 'T'
+    else:
+        return "INVALID"
+    
+def NumberToPattern(index, k):
+    numbers = []
+    letters = []
+    quotient = index
+    while (quotient > 0):
+        remainder = quotient % 4
+        numbers.append(remainder)
+        quotient = math.floor(quotient / 4)
+    if (quotient != 0):
+        numbers = numbers + [quotient]
+    numbers.reverse()
+    while (len(numbers) < k):
+        numbers = [0] + numbers
+    for number in numbers:
+        letters.append(NumberToLetter(number))
+    DNA = ''.join(letters)
+    return DNA
