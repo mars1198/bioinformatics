@@ -1,0 +1,23 @@
+# fill in your PatternToNumber() function here along with any subroutines you need.
+def LetterToNumber(Letter):
+    if Letter == 'A':
+        return 0
+    elif Letter == 'C':
+        return 1
+    elif Letter == 'G':
+        return 2
+    elif Letter == 'T':
+        return 3
+    else:
+        return "INVALID"
+
+def PatternToNumber(pattern):
+    Base10 = 0
+    PatternInput = list(pattern)
+    PatternToBase4 = []
+    for Letter in PatternInput:
+        PatternToBase4.append(LetterToNumber(Letter))
+    PatternToBase4.reverse()
+    for index, value in enumerate(PatternToBase4):
+        Base10 += value * 4**index
+    return Base10
