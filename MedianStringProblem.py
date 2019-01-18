@@ -38,7 +38,7 @@ def NUMBER2SYMBOL(x):
     
 def median_string(dna, k):
     distance = sys.maxsize
-    for i in range(4 ** k - 1):
+    for i in range(4 ** k):
         pattern = number_to_pattern(i, k)
         if distance > distance_between_pattern_and_strings(pattern, dna):
             distance = distance_between_pattern_and_strings(pattern, dna)
